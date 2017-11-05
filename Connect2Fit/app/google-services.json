@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "400463332231",
+    "firebase_url": "https://connect2fit-e2ae6.firebaseio.com",
+    "project_id": "connect2fit-e2ae6",
+    "storage_bucket": "connect2fit-e2ae6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400463332231:android:a023bbd6eb617850",
+        "android_client_info": {
+          "package_name": "com.example.muhammadabdullah.connect2fit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400463332231-pfq7fbnjbc6h95qng3fu9g4m624la8ss.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muhammadabdullah.connect2fit",
+            "certificate_hash": "c46beb03a4dfa41bfb66c0eb0c86bb0de05fd8cb"
+          }
+        },
+        {
+          "client_id": "400463332231-c8cm2f72n14imi0vavgkbr3mkvicln6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAQ6QsAJF9q4_8XzSpVOYfRP7oP3QLDlw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400463332231-c8cm2f72n14imi0vavgkbr3mkvicln6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

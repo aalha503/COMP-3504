@@ -9,21 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class TrainerPage extends AppCompatActivity {
+public class registerPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-        setContentView(R.layout.activity_trainer_page);
+        setContentView(R.layout.activity_register_page);
 
+        Intent recievedIntent = getIntent();
 
-    }
-
-    public void trainerFindonClick(View v){
-        Intent k = new Intent(this, findAtrainer.class);
-        startActivity(k);
 
     }
 
