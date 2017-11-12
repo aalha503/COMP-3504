@@ -21,16 +21,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WelcomePage">
+        <activity android:name=".SignInPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SignInPage"
-            android:label="@string/title_activity_sign_in_page" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -46,13 +43,21 @@
         <activity
             android:name=".findAtrainer"
             android:label="@string/title_activity_find_atrainer" />
-        <activity
-            android:name=".SignUpPage"
-            android:label="@string/title_activity_sign_up_page" />
         <activity android:name=".ClientPage" />
         <activity
             android:name=".TrainerPage"
             android:label="@string/title_activity_trainer_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".registerPage"
+            android:label="@string/title_activity_register_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <uses-permission android:name="android.permission.INTERNET" />
+
+        <activity
+            android:name=".SignupActivity"
+            android:label="@string/title_activity_signup"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
