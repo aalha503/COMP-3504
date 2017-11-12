@@ -1,28 +1,155 @@
 package com.example.muhammadabdullah.connect2fit;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SignInPage extends AppCompatActivity {
+
+    private EditText inputEmail, inputPassword;
+    private FirebaseAuth auth;
+    private ProgressBar progressBar;
+    private Button btnSignup, btnLogin, btnReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+        //Get Firebase auth instance
+        auth = FirebaseAuth.getInstance();
+
+
+        //disabled automatic login for testing
+        /*
+        if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(SignInPage.this, ClientPage.class));
+            finish();
+        }
+        */
+
+        // set the view now
         setContentView(R.layout.activity_sign_in_page);
+
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+
+        inputEmail = (EditText) findViewById(R.id.email);
+        inputPassword = (EditText) findViewById(R.id.password);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        btnSignup = (Button) findViewById(R.id.btn_signup);
+        btnLogin = (Button) findViewById(R.id.btn_login);
+        btnReset = (Button) findViewById(R.id.btn_reset_password);
+
+        //Get Firebase auth instance
+        auth = FirebaseAuth.getInstance();
+
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInPage.this, registerPage.class));
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInPage.this, ResetPasswordActivity.class));
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = inputEmail.getText().toString();
+                final String password = inputPassword.getText().toString();
+
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+               // progressBar.setVisibility(View.VISIBLE);
+
+                //authenticate user
+                auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(SignInPage.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                // If sign in fails, display a message to the user. If sign in succeeds
+                                // the auth state listener will be notified and logic to handle the
+                                // signed in user can be handled in the listener.
+                                //progressBar.setVisibility(View.GONE);
+                                if (!task.isSuccessful()) {
+                                    // there was an error
+                                    if (password.length() < 6) {
+                                        inputPassword.setError(getString(R.string.minimum_password));
+                                    } else {
+                                        Toast.makeText(SignInPage.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
+                                    }
+                                } else {
+                                    Intent intent = new Intent(SignInPage.this, ClientPage.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        });
+            }
+        });
+        /*Reveal Effect
+            // previously invisible view
+                View myView = findViewById(R.id.);
+
+            // get the center for the clipping circle
+            int cx = myView.getWidth() / 2;
+            int cy = myView.getHeight() / 2;
+
+            // get the final radius for the clipping circle
+            float finalRadius = (float) Math.hypot(cx, cy);
+
+            // create the animator for this view (the start radius is zero)
+            Animator anim =
+                ViewAnimationUtils.createCircularReveal(myView, cx, cy, 0, finalRadius);
+
+            // make the view visible and start the animation
+            myView.setVisibility(  View.VISIBLE);
+            anim.start();
+
+    /end Reveal effect
+    */
     }
+}
 
 
 
+/*
     public void registeronClick(View view){
         try {
             //change signupActivityclass to registerClass once done tutorial
-            Intent k = new Intent(this, SignupActivity.class);
+            Intent k = new Intent(this, registerPage.class);
             startActivity(k);
         }catch (Exception e){
 
@@ -30,3 +157,4 @@ public class SignInPage extends AppCompatActivity {
     }
 
 }
+*/
