@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.muhammadabdullah.connect2fit.dataLayer.DataLayer;
+
 public class ClientPage extends AppCompatActivity {
 
     @Override
@@ -19,6 +21,8 @@ public class ClientPage extends AppCompatActivity {
     public void trainerFindonClick(View v){
         Intent k = new Intent(this, findAtrainer.class);
         startActivity(k);
+
+        DataLayer data = DataLayer.getInstance();
 
     }
 
