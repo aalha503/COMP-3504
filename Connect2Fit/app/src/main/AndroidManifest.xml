@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -21,7 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignInPage">
+        <activity android:name=".ui.SignInPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,15 +42,15 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".findAtrainer"
+            android:name=".ui.FindAtrainer"
             android:label="@string/title_activity_find_atrainer" />
-        <activity android:name=".ClientPage" />
+        <activity android:name=".ui.ClientPage" />
         <activity
-            android:name=".TrainerPage"
+            android:name=".ui.TrainerPage"
             android:label="@string/title_activity_trainer_page"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".registerPage"
+            android:name=".ui.RegisterPage"
             android:label="@string/title_activity_register_page"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -60,9 +61,13 @@
             android:label="@string/title_activity_signup"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ResetPasswordActivity"
+            android:name=".ui.ResetPasswordActivity"
             android:label="@string/title_activity_reset_password"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.AddToDatabase"
+            android:label="AddToDatabase"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

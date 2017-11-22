@@ -1,4 +1,4 @@
-package com.example.muhammadabdullah.connect2fit;
+package com.example.muhammadabdullah.connect2fit.ui;
 
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 
+import com.example.muhammadabdullah.connect2fit.R;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -17,7 +18,7 @@ import java.lang.Object;
 
 import java.util.List;
 
-public class findAtrainer extends FragmentActivity implements OnMapReadyCallback {
+public class FindAtrainer extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 

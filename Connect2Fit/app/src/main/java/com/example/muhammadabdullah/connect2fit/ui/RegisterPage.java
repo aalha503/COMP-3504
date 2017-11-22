@@ -1,13 +1,9 @@
-package com.example.muhammadabdullah.connect2fit;
+package com.example.muhammadabdullah.connect2fit.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +12,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.muhammadabdullah.connect2fit.R;
+import com.example.muhammadabdullah.connect2fit.dataLayer.Diet;
+import com.example.muhammadabdullah.connect2fit.dataLayer.UserInformation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,9 +26,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class registerPage extends AppCompatActivity {
+public class RegisterPage extends AppCompatActivity {
 
-    private static final String TAG = "registerPage";
+    private static final String TAG = "RegisterPage";
 
     private EditText inputEmail, inputPassword,sysconfirmPassword,firstNameText, lastNameText;
     private Button btnSignIn, btnSignUp, btnResetPassword;
@@ -65,7 +64,7 @@ public class registerPage extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         btnSignIn = (Button) findViewById(R.id.sign_in_button);
-        btnSignUp = (Button) findViewById(R.id.sign_up_button);
+        btnSignUp = (Button) findViewById(R.id.finalSignUpBtn);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -87,7 +86,7 @@ public class registerPage extends AppCompatActivity {
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(registerPage.this, ClientPage.class));
+                startActivity(new Intent(RegisterPage.this, ClientPage.class));
             }
         });
 
@@ -146,16 +145,16 @@ public class registerPage extends AppCompatActivity {
                 //progressBar.setVisibility(View.VISIBLE);
                 //create user
                 mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(registerPage.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(RegisterPage.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(registerPage.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterPage.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 //progressBar.setVisibility(View.GONE);
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(registerPage.this, "Authentication failed." + task.getException(),
+                                    Toast.makeText(RegisterPage.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
 
@@ -172,7 +171,7 @@ public class registerPage extends AppCompatActivity {
                                         toastMessage("Fill out all the fields");
                                     }
 
-                                    startActivity(new Intent(registerPage.this, ClientPage.class));
+                                    startActivity(new Intent(RegisterPage.this, ClientPage.class));
                                     finish();
                                 }
                             }

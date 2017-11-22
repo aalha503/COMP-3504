@@ -1,14 +1,14 @@
-package com.example.muhammadabdullah.connect2fit;
+package com.example.muhammadabdullah.connect2fit.dataLayer;
 
 /**
  * Created by Muhammad Abdullah on 11/20/2017.
  */
 
-public class workoutPlan {
+public class WorkoutPlan {
     public String workoutID;
     public Workout workout;
 
-    public workoutPlan(String workoutID,Workout workout) {
+    public WorkoutPlan(String workoutID, Workout workout) {
         this.workoutID = workoutID;
         this.workout = workout;
     }

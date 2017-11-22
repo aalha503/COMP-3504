@@ -1,4 +1,4 @@
-package com.example.muhammadabdullah.connect2fit;
+package com.example.muhammadabdullah.connect2fit.ui;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.muhammadabdullah.connect2fit.dataLayer.DataLayer;
+import com.example.muhammadabdullah.connect2fit.R;
 
 public class ClientPage extends AppCompatActivity {
 
@@ -19,10 +19,11 @@ public class ClientPage extends AppCompatActivity {
     }
 
     public void trainerFindonClick(View v){
-        Intent k = new Intent(this, findAtrainer.class);
+        Intent k = new Intent(this, FindAtrainer.class);
         startActivity(k);
 
-        DataLayer data = DataLayer.getInstance();
+
+
 
     }
 
