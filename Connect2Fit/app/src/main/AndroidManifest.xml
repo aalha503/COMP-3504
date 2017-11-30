@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -39,7 +40,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyC18hpj86IHjcPQeC5B2U3YytlY4lga2Cg" />
 
         <activity
             android:name=".ui.FindAtrainer"
@@ -68,6 +69,11 @@
             android:name=".ui.AddToDatabase"
             android:label="AddToDatabase"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.EditTrainer"
+            android:label="EditTrainer"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

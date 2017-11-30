@@ -18,6 +18,10 @@ class Workout {
         this.muscle_influence = muscle_influence;
     }
 
+    public Workout(String workoutType) {
+        this.workoutType = workoutType;
+    }
+
     public String getWorkoutType() {
         return workoutType;
     }

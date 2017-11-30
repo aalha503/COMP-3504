@@ -2,6 +2,8 @@ package com.example.muhammadabdullah.connect2fit.dataLayer;
 
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 /**
  * Created by Muhammad Abdullah on 11/20/2017.
  */
@@ -9,14 +11,14 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Diet{
 
     public String mealPlanID;
-    public Food food;
+    public ArrayList <Food> food;
     public int calories;
-    public String foodType;
 
 
-    public Diet(String mealPlanID, Food food) {
+    public Diet(String mealPlanID, ArrayList<Food> food, int calories) {
         this.mealPlanID = mealPlanID;
         this.food = food;
+        this.calories = calories;
     }
 
     public String getMealPlanID() {
@@ -29,4 +31,19 @@ public class Diet{
         this.mealPlanID = key;
     }
 
+    public ArrayList<Food> getFood() {
+        return food;
+    }
+
+    public void setFood(ArrayList<Food> food) {
+        this.food = food;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
 }

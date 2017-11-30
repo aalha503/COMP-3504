@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.muhammadabdullah.connect2fit.ui.SignInPage"
-    android:background="@drawable/signin"
+    android:background="@drawable/signin3"
     >
 
     //https://stackoverflow.com/questions/3307090/how-to-add-background-image-to-activity
@@ -150,7 +150,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.083"
+        />
 
     <TextView
         android:id="@+id/textView3"

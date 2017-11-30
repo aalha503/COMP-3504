@@ -54,7 +54,14 @@
     <string name="find_a_trainer" />
     <string name="progress" />
     <string name="confirm_password" />
-
+    <string name="update">Update</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="bio">Bio:</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_name">Enter name</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="save">Save</string>
+    <string name="select_image">Select Image</string>
 
 
 </resources>
